@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" class="overflow-y-scroll">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Company | Jaithra Media </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: "Inter", !important;
+        }
+
+        .bg-main {
+            background-color: #8f9ea0;
+        }
+
+        .bg-accent {
+            background-color: #d04c88;
+        }
+
+        .bg-secondary {
+            background-color: #bc3b5e;
+        }
+
+        .bg-highlight {
+            background-color: #db894f;
+        }
+
+        .bg-soft {
+            background-color: #ca9cb0;
+        }
+
+        .bg-light {
+            background-color: #d3c6cf;
+        }
+
+        .bg-pinkish {
+            background-color: #bc4d9a;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+
+    <!-- Header -->
+    <header class="header fixed top-0 bg-[#DCA56C] md:px-4 lg:px-24 w-full z-50">
+        <div class="flex justify-between max-w-7xl mx-auto items-center py-2 px-4 md:px-0 relative">
+
+            <div class="nav_logo">
+                <a href="/">
+                    <img alt="Logo" src="C:\Jaithra\pages\images\Jaitra.jpg" class="h-[50px] object-contain" />
+                </a>
+            </div>
+            <nav>
+                <ul class="hidden lg:flex gap-6 text-white">
+                    <li class="cursor-pointer hover:underline hover:text-[#db894f] font-medium"><a
+                            href="C:\Jaithra\pages\home.html">Home</a>
+                    </li>
+                    <li class="cursor-pointer hover:underline hover:text-[#db894f] font-medium"><a
+                            href="file:///C:/Jaithra/pages/animations.html">Animation</a></li>
+                    <li class="cursor-pointer hover:underline hover:text-[#db894f] font-medium"><a href="#">About</a>
+                    </li>
+                    <li class="cursor-pointer hover:underline hover:text-[#db894f] font-medium"><a href="#">Contact
+                            Us</a></li>
+                </ul>
+            </nav>
+            <div class="lg:hidden">
+                <button id="menu-btn" class="text-[#db894f] focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <nav id="mobile-menu" class="hidden flex-col bg-[#DCA56C] mt-4 border-t border-gray-200 lg:hidden">
+            <a href="/"
+                class="block px-4 py-3 border-b border-gray-200 text-white hover:text-[#db894f] font-medium">Home</a>
+            <a href="file:///C:/Jaithra/pages/animation.html"
+                class="block px-4 py-3 border-b border-gray-200 text-white text-[#db894f] font-medium">Animation</a>
+            <a href="#"
+                class="block px-4 py-3 border-b border-gray-200 text-white hover:text-[#db894f] font-medium">About</a>
+            <a href="#"
+                class="block px-4 py-3 border-b border-gray-200 text-white hover:text-[#db894f] font-medium">team
+                Us</a>
+        </nav>
+    </header>
+
+    <section class="bg-[#CDCDCD] py-10 mt-[66px] flex flex-col items-center justify-center">
+        <h1 class="text-3xl md:text-4xl font-bold text-[#b72960] mb-4">Explore Our Animation Videos 🎬✨</h1>
+        <p class="text-gray-700 text-lg max-w-3xl mx-auto">Select a category and dive into our creative animated world!
+        </p>
+    </section>
+    <section>
+        <div class="flex flex-col lg:flex-row px-6 md:px-12 lg:px-24 py-12 gap-8">
+            <aside class="w-full lg:w-1/4 bg-white border rounded-3xl shadow-lg p-6 flex flex-col gap-4 sticky top-6">
+                <h2 class="text-xl font-bold text-[#b72960] mb-2">Categories</h2>
+                <button onclick="filterData('all')"
+                    class="text-left px-4 py-2 bg-[#FFBCBC] rounded-full text-[#b72960] font-medium hover:bg-[#fda4af] transition">All
+                    Videos</button>
+                <button onclick="filterData('telugu')"
+                    class="text-left px-4 py-2 hover:bg-[#f3f4f6] rounded-full transition">Telugu</button>
+                <button onclick="filterData('tamil')"
+                    class="text-left px-4 py-2 hover:bg-[#f3f4f6] rounded-full transition">Tamil</button>
+                <button onclick="filterData('kanada')"
+                    class="text-left px-4 py-2 hover:bg-[#f3f4f6] rounded-full transition">Kanada</button>
+            </aside>
+            <section id="cardsContainer" class="w-full lg:w-3/4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+            </section>
+        </div>
+    </section>
+    <footer class="bg-gray-100 text-black py-12 px-6 md:px-12 lg:px-24 ">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <img src="C:\Jaithra\pages\images\logo.jpg" alt="Logo" class="w-36 mb-4">
+                <p class="text-black text-sm">Empowering healthcare with advanced management solutions and AI-driven
+                    tools.</p>
+            </div>
+            <div class="flex flex-col gap-3">
+                <h4 class="text-lg font-semibold mb-2">Quick Links</h4>
+                <a href="C:\Jaithra\index.html" class="hover:underline">Home</a>
+                <a href="C:\Jaithra\pages\animation.html" class="hover:underline">Animation</a>
+                <a href="#" class="hover:underline">About</a>
+                <a href="C:\Jaithra\pages\team.html" class="hover:underline">Company</a>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-2">Get in Touch</h4>
+                <p class="text-black text-sm mb-2">contact@Jaithra.com</p>
+                <p class="text-black text-sm mb-4">+1 234 567 890</p>
+                <div class="flex gap-4">
+                    <a href="#">
+                        <img src="https://img.icons8.com/color/48/facebook-new.png" alt="Facebook" class="w-8 h-8" />
+                    </a>
+                    <a href="#">
+                        <img src="https://img.icons8.com/color/48/twitter--v1.png" alt="Twitter" class="w-8 h-8" />
+                    </a>
+                    <a href="#">
+                        <img src="https://img.icons8.com/color/48/linkedin.png" alt="LinkedIn" class="w-8 h-8" />
+                    </a>
+                    <a href="#">
+                        <img src="https://img.icons8.com/color/48/youtube-play.png" alt="YouTube" class="w-8 h-8" />
+                    </a>
+                </div>
+
+            </div>
+        </div>
+        <div class="border-t border-gray-400 mt-8 pt-4 text-center text-sm text-gray-600">
+            © <span id="year"></span> Jaithra Media. All rights reserved.
+        </div>
+    </footer>
+    <script src="C:\Jaithra\include.js"></script>
+</body>
+
+</html>
