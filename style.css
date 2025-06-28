@@ -1,0 +1,31 @@
+body {
+    font-family: "Inter", !important;
+}
+
+.bg-main {
+    background-color: #8f9ea0;
+}
+
+.bg-accent {
+    background-color: #d04c88;
+}
+
+.bg-secondary {
+    background-color: #bc3b5e;
+}
+
+.bg-highlight {
+    background-color: #db894f;
+}
+
+.bg-soft {
+    background-color: #ca9cb0;
+}
+
+.bg-light {
+    background-color: #d3c6cf;
+}
+
+.bg-pinkish {
+    background-color: #bc4d9a;
+}
