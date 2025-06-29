@@ -90,26 +90,25 @@ const data = [
 function renderCards(items) {
   const container = document.getElementById('cardsContainer');
   container.innerHTML = "";
-
   items.forEach(item => {
     container.innerHTML += `
-          <div>
-            <div class="bg-white shadow-xl hover:shadow-2xl transition duration-300 overflow-hidden flex flex-col group">
-              <a href="${item.url1}" target="_blank">
-                <img src="https://via.placeholder.com/250x200.png?text=${encodeURIComponent(item.name)}" 
-                  alt="Thumbnail" class="w-[250px] h-[200px] object-cover group-hover:scale-105 transition duration-300" />
-              </a>
-            </div>
-            <div class="bg-gray-200 p-3">
-              <span>${item.name}</span>
-            </div>
-          </div>
-        `;
+      <div>
+        <div class="bg-white shadow-xl hover:shadow-2xl transition duration-300 overflow-hidden flex flex-col group">
+          <a href="${item.url1}" target="_blank">
+            <img src="https://via.placeholder.com/250x200.png?text=${encodeURIComponent(item.name)}" 
+              alt="Thumbnail" class="w-[250px] h-[200px] object-cover group-hover:scale-105 transition duration-300" />
+          </a>
+        </div>
+        <div class="bg-gray-200 p-3">
+          <span>${item.name}</span>
+        </div>
+      </div>
+    `;
   });
 }
 
 function filterData(lang) {
-  // Filter and render cards
+  // Filter and render
   if (lang === 'all') {
     renderCards(data);
   } else {
@@ -117,21 +116,34 @@ function filterData(lang) {
     renderCards(filtered);
   }
 
-  // Remove highlight from all buttons
+  // Update desktop buttons
   const buttons = document.querySelectorAll('aside button');
   buttons.forEach(btn => {
     btn.classList.remove('bg-[#FFBCBC]', 'text-[#b72960]', 'font-medium');
     btn.classList.add('hover:bg-[#f3f4f6]');
   });
-
-  // Find clicked button and add highlight classes
   const activeBtn = Array.from(buttons).find(btn => btn.getAttribute('onclick').includes(`'${lang}'`));
   if (activeBtn) {
     activeBtn.classList.add('bg-[#FFBCBC]', 'text-[#b72960]', 'font-medium');
     activeBtn.classList.remove('hover:bg-[#f3f4f6]');
   }
+
+  // Update select value if needed
+  const select = document.getElementById('mobileCategorySelect');
+  if (select && select.value !== lang) {
+    select.value = lang;
+  }
 }
 
-
-
-renderCards(data);
+document.addEventListener("DOMContentLoaded", function () {
+  // Mobile select event
+  const mobileSelect = document.getElementById('mobileCategorySelect');
+  if (mobileSelect) {
+    mobileSelect.addEventListener('change', function () {
+      filterData(this.value);
+    });
+  }
+  
+  // Initial load
+  filterData('all');
+});
