@@ -2,28 +2,27 @@ document.getElementById("year").textContent = new Date().getFullYear();
 const counters = document.querySelectorAll('.counter');
 counters.forEach(counter => {
   const target = +counter.getAttribute('data-target');
-  let current = Math.floor(target / 2);
+  const startAttr = counter.getAttribute('data-start');
+  const start = startAttr && startAttr !== '' ? +startAttr : Math.floor(target / 2);
+  let current = start;
+
+  const totalFrames = 100; 
+  const increment = (target - start) / totalFrames;
+
+  counter.style.minWidth = `${target.toLocaleString().length}ch`;
+  counter.style.display = "inline-block";
+  counter.style.textAlign = "right";
 
   const updateCount = () => {
-    const increment = (target - current) / 40;
     if (current < target) {
       current += increment;
-      counter.innerText = Math.ceil(current).toLocaleString();
+      if (current > target) current = target;
+      counter.innerText = Math.round(current).toLocaleString();
       requestAnimationFrame(updateCount);
     } else {
       counter.innerText = target.toLocaleString();
     }
   };
-
-  const observer = new IntersectionObserver(entries => {
-    if (entries[0].isIntersecting) {
-      updateCount();
-      observer.disconnect();
-    }
-  }, { threshold: 0.3 });
-
-  observer.observe(counter);
-});
 const header = document.querySelector('.header');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 0) {
